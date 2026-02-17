@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Science Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fa;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #0070f3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0059c1;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Science Quiz</h1>
+
+    <form id="quizForm">
+
+        <!-- Question 1 -->
+        <div class="question">
+            <p><strong>1. What is the SI unit of electric current?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="Ampere"> Ampere</label>
+                <label><input type="radio" name="q1" value="Ohm"> Ohm</label>
+                <label><input type="radio" name="q1" value="Volt"> Volt</label>
+                <label><input type="radio" name="q1" value="Coulomb"> Coulomb</label>
+                <label><input type="radio" name="q1" value="Watt"> Watt</label>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <p><strong>2. What is the SI unit of force?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="Newton"> Newton</label>
+                <label><input type="radio" name="q2" value="Joule"> Joule</label>
+                <label><input type="radio" name="q2" value="Pascal"> Pascal</label>
+                <label><input type="radio" name="q2" value="Watt"> Watt</label>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <p><strong>3. What is the SI unit of power?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="Watt"> Watt</label>
+                <label><input type="radio" name="q3" value="Volt"> Volt</label>
+                <label><input type="radio" name="q3" value="Ohm"> Ohm</label>
+                <label><input type="radio" name="q3" value="Ampere"> Ampere</label>
+            </div>
+        </div>
+
+        <button type="button" onclick="calculateScore()">Submit</button>
+    </form>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function calculateScore() {
+    let score = 0;
+
+    if (document.querySelector('input[name="q1"]:checked')?.value === "Ampere") score++;
+    if (document.querySelector('input[name="q2"]:checked')?.value === "Newton") score++;
+    if (document.querySelector('input[name="q3"]:checked')?.value === "Watt") score++;
+
+    document.getElementById("result").innerText = 
+        "Your Score: " + score + " / 3";
+}
+</script>
+
+</body>
+</html>
